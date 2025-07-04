@@ -1,0 +1,276 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+// Global responsive styles
+* {
+  box-sizing: border-box;
+}
+
+// Mobile-first responsive utilities
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+  
+  @include tablet {
+    max-width: 720px;
+    padding: 0 $spacing-lg;
+  }
+  
+  @include desktop {
+    max-width: 1200px;
+    padding: 0 $spacing-xl;
+  }
+}
+
+// Responsive table styles
+.responsiveTable {
+  overflow-x: auto;
+  
+  @include mobile {
+    .MuiTable-root {
+      min-width: 650px;
+    }
+    
+    .MuiTableCell-root {
+      padding: $spacing-xs $spacing-sm;
+      font-size: $font-size-sm;
+    }
+  }
+}
+
+// Responsive grid system
+.grid {
+  display: grid;
+  gap: $spacing-md;
+  
+  &.cols1 {
+    grid-template-columns: 1fr;
+  }
+  
+  &.cols2 {
+    grid-template-columns: 1fr;
+    
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  &.cols3 {
+    grid-template-columns: 1fr;
+    
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include desktop {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  &.cols4 {
+    grid-template-columns: 1fr;
+    
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include desktop {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+// Responsive flexbox utilities
+.flex {
+  display: flex;
+  
+  &.column {
+    flex-direction: column;
+    
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+  
+  &.wrap {
+    flex-wrap: wrap;
+  }
+  
+  &.center {
+    justify-content: center;
+    align-items: center;
+  }
+  
+  &.between {
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  &.gap-sm {
+    gap: $spacing-sm;
+  }
+  
+  &.gap-md {
+    gap: $spacing-md;
+  }
+  
+  &.gap-lg {
+    gap: $spacing-lg;
+  }
+}
+
+// Hide/show on different screen sizes
+.hideOnMobile {
+  @include mobile {
+    display: none !important;
+  }
+}
+
+.hideOnTablet {
+  @include tablet {
+    display: none !important;
+  }
+}
+
+.hideOnDesktop {
+  @include desktop {
+    display: none !important;
+  }
+}
+
+.showOnMobile {
+  display: none !important;
+  
+  @include mobile {
+    display: block !important;
+  }
+}
+
+.showOnTablet {
+  display: none !important;
+  
+  @include tablet {
+    display: block !important;
+  }
+}
+
+.showOnDesktop {
+  display: none !important;
+  
+  @include desktop {
+    display: block !important;
+  }
+}
+
+// Responsive text sizes
+.textResponsive {
+  &.h1 {
+    font-size: 1.5rem;
+    
+    @include tablet {
+      font-size: 2rem;
+    }
+    
+    @include desktop {
+      font-size: 2.5rem;
+    }
+  }
+  
+  &.h2 {
+    font-size: 1.25rem;
+    
+    @include tablet {
+      font-size: 1.5rem;
+    }
+    
+    @include desktop {
+      font-size: 2rem;
+    }
+  }
+  
+  &.h3 {
+    font-size: 1.125rem;
+    
+    @include tablet {
+      font-size: 1.25rem;
+    }
+    
+    @include desktop {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+// Responsive spacing
+.spacing {
+  &.p-xs { padding: $spacing-xs; }
+  &.p-sm { padding: $spacing-sm; }
+  &.p-md { padding: $spacing-md; }
+  &.p-lg { padding: $spacing-lg; }
+  &.p-xl { padding: $spacing-xl; }
+  
+  &.m-xs { margin: $spacing-xs; }
+  &.m-sm { margin: $spacing-sm; }
+  &.m-md { margin: $spacing-md; }
+  &.m-lg { margin: $spacing-lg; }
+  &.m-xl { margin: $spacing-xl; }
+  
+  @include mobile {
+    &.p-responsive { padding: $spacing-sm; }
+    &.m-responsive { margin: $spacing-sm; }
+  }
+  
+  @include tablet {
+    &.p-responsive { padding: $spacing-md; }
+    &.m-responsive { margin: $spacing-md; }
+  }
+  
+  @include desktop {
+    &.p-responsive { padding: $spacing-lg; }
+    &.m-responsive { margin: $spacing-lg; }
+  }
+}
+
+// Card responsive styles
+.cardResponsive {
+  @include card;
+  
+  @include mobile {
+    padding: $spacing-md;
+    margin: $spacing-sm;
+    border-radius: $border-radius-sm;
+  }
+  
+  @include tablet {
+    padding: $spacing-lg;
+    margin: $spacing-md;
+  }
+  
+  @include desktop {
+    padding: $spacing-xl;
+    margin: $spacing-lg;
+  }
+}
+
+// Button responsive styles
+.buttonResponsive {
+  @include button-primary;
+  
+  @include mobile {
+    width: 100%;
+    padding: $spacing-sm $spacing-md;
+    font-size: $font-size-sm;
+  }
+  
+  @include tablet {
+    width: auto;
+    padding: $spacing-sm $spacing-lg;
+    font-size: $font-size-md;
+  }
+  
+  @include desktop {
+    padding: $spacing-md $spacing-xl;
+    font-size: $font-size-lg;
+  }
+}
